@@ -42,10 +42,10 @@ public class ShopPage extends BaseTest {
     }
     public void hoverOnMenTab(){
         waitForElementToBeVisible(menTab,15);
-        actions.moveToElement(menTab).perform();
+        actions.moveToElement(menTab,-2,-2).perform();
     }
     public void selectJackets(){
-        clickOnElement(jackets);
+        clickOnElement(jackets,30);
     }
     public void verifyMensJacketsPageLoaded(){
         verifyUrl("https://shop.warriors.com/golden-state-warriors-men-jackets");

@@ -10,6 +10,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.time.Duration;
 import java.util.function.Consumer;
@@ -75,19 +76,19 @@ public class BaseTest {
     }
 
     public void openUrl(String url) {openUrl(url,15);}
-    public void verifyURL(String url, long timeout) {
-        new WebDriverWait(getDriver(), Duration.ofSeconds(timeout))
-                .until(ExpectedConditions.urlContains(url));
-        LOGGER.info("Element is visible: " + url);
+    public void verifyURL(String expectedUrl, long timeout) {
+        String currentUrl = getDriver().getCurrentUrl();
+        LOGGER.info("Current URL: " + currentUrl);
+        LOGGER.info("Expected URL: " + expectedUrl);
+        try{
+        Assert.assertEquals(expectedUrl,currentUrl);} catch (Throwable e) {
+            Assert.assertTrue(currentUrl.toLowerCase().contains(expectedUrl),"The Expected URl doesn't match with the current one");
+        }
+
     }
     public void verifyUrl(String expectedURL){
-        try {
             verifyURL(expectedURL,DEFAULT_TIMEOUT);
-            LOGGER.info("Successfully navigated to Men's section.");
-        } catch (Exception e) {
-            LOGGER.log(Level.SEVERE, "Failed to navigate to Men's section: " + e.getMessage());
-            throw e;
-        }
+            LOGGER.info("Successfully navigated to the URL : "+expectedURL);
     }
 
     // Navigate back to the previous page

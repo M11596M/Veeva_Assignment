@@ -67,7 +67,8 @@ public class HomePage extends BaseTest {
     }
     public void selectNewsAndFeaturesCategory(){
         waitForElementToBeVisible(newsAndFeaturesCategory,30);
-        actions.moveToElement(newsAndFeaturesCategory,2,2).click().perform();
+        actions.moveToElement(newsAndFeaturesCategory,2,2).click().build();
+        actions.perform();
     }
 
 
