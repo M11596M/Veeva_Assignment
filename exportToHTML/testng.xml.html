@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>testng.xml</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #d5b778;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+testng.xml</font>
+</center></td></tr></table>
+<pre><span class="s0">&lt;!DOCTYPE </span><span class="s2">suite </span><span class="s0">SYSTEM </span><span class="s3">&quot;https://testng.org/testng-1.0.dtd&quot; </span><span class="s0">&gt;</span>
+<span class="s0">&lt;suite </span><span class="s2">name</span><span class="s3">=&quot;Automation Test Suite&quot; </span><span class="s2">parallel</span><span class="s3">=&quot;tests&quot; </span><span class="s2">thread-count</span><span class="s3">=&quot;4&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;test </span><span class="s2">name</span><span class="s3">=&quot;Core Product Tests&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;classes&gt;</span>
+            <span class="s0">&lt;class </span><span class="s2">name</span><span class="s3">=&quot;com.veeva.runners.CucumberTestRunner&quot;</span><span class="s0">/&gt;</span>
+        <span class="s0">&lt;/classes&gt;</span>
+    <span class="s0">&lt;/test&gt;</span>
+    <span class="s0">&lt;test </span><span class="s2">name</span><span class="s3">=&quot;Derived Product 1 Tests&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;classes&gt;</span>
+            <span class="s0">&lt;class </span><span class="s2">name</span><span class="s3">=&quot;com.veeva.runners.CucumberTestRunner&quot;</span><span class="s0">/&gt;</span>
+        <span class="s0">&lt;/classes&gt;</span>
+    <span class="s0">&lt;/test&gt;</span>
+    <span class="s0">&lt;test </span><span class="s2">name</span><span class="s3">=&quot;Derived Product 2 Tests&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;classes&gt;</span>
+            <span class="s0">&lt;class </span><span class="s2">name</span><span class="s3">=&quot;com.veeva.runners.CucumberTestRunner&quot;</span><span class="s0">/&gt;</span>
+        <span class="s0">&lt;/classes&gt;</span>
+    <span class="s0">&lt;/test&gt;</span>
+<span class="s0">&lt;/suite&gt;</span>
+</pre>
+</body>
+</html>

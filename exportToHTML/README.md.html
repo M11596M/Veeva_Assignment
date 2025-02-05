@@ -1,0 +1,199 @@
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #bcbec4;}
+.s1 { color: #bcbec4;}
+.s2 { color: #56a8f5;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+README.md</font>
+</center></td></tr></table>
+<pre><span class="s0">Veeva Web Test Automation Framework</span>
+
+<span class="s0">Overview</span>
+
+<span class="s0">The Veeva Web Test Automation Framework is a modular, scalable, and reusable test automation framework designed to automate the testing of multiple products </span><span class="s1">(</span><span class="s0">Core Product, Derived Product 1, and Derived Product 2</span><span class="s1">)</span><span class="s0">. The framework is implemented using Selenium WebDriver, Java, TestNG, Cucumber </span><span class="s1">(</span><span class="s0">BDD</span><span class="s1">)</span><span class="s0">, Maven, and Extent Reports for reporting.</span>
+
+<span class="s0">This project follows the Page Object Model </span><span class="s1">(</span><span class="s0">POM</span><span class="s1">) </span><span class="s0">with Page Factory and supports parallel execution, parameterized configuration settings, and limited use of static waits to enhance test stability and performance.</span>
+
+<span class="s0">Project Structure</span>
+
+<span class="s0">Veeva-Web-Test-Automation/</span>
+<span class="s0">├── automation-framework/               # Core automation framework</span>
+<span class="s0">│   ├── src/main/java/com/automation/</span>
+<span class="s0">│   │   ├── pageobjects/                # Page Object Model </span><span class="s1">(</span><span class="s0">POM</span><span class="s1">) </span><span class="s0">classes</span>
+<span class="s0">│   │   │   ├── HomePage.java</span>
+<span class="s0">│   │   │   └── ProductPage.java</span>
+<span class="s0">│   │   ├── utils/                       # Utility classes</span>
+<span class="s0">│   │   │   ├── WebDriverManager.java</span>
+<span class="s0">│   │   │   └── DataReader.java</span>
+<span class="s0">│   │   ├── drivers/                     # WebDriver factory classes</span>
+<span class="s0">│   │   │   └── BrowserFactory.java</span>
+<span class="s0">│   │   ├── config/                      # Configuration files</span>
+<span class="s0">│   │   │   └── ConfigProperties.java</span>
+<span class="s0">│   │   └── listeners/                   # TestNG and Extent Report listeners</span>
+<span class="s0">│   │       └── ExtentReportListener.java</span>
+<span class="s0">│   ├── pom.xml</span>
+<span class="s0">│   └── README.md</span>
+<span class="s0">│</span>
+<span class="s0">├── core-product-tests/                  # Test cases for Core Product</span>
+<span class="s0">│   ├── src/test/java/com/automation/</span>
+<span class="s0">│   │   ├── stepdefinitions/             # Step definition files for Cucumber</span>
+<span class="s0">│   │   │   └── CPTestSteps.java</span>
+<span class="s0">│   │   ├── runners/                     # Test runners</span>
+<span class="s0">│   │   │   └── CPTestRunner.java</span>
+<span class="s0">│   │   └── tests/</span>
+<span class="s0">│   │       └── CPTestNGSuite.xml       # TestNG suite file</span>
+<span class="s0">│   ├── src/test/resources/features/</span>
+<span class="s0">│   │   └── core-product.feature</span>
+<span class="s0">│   ├── src/test/resources/testdata/</span>
+<span class="s0">│   │   └── core-product-testdata.json</span>
+<span class="s0">│   ├── pom.xml</span>
+<span class="s0">│</span>
+<span class="s0">├── derived-product1-tests/               # Test cases for Derived Product 1</span>
+<span class="s0">│   ├── src/test/java/com/automation/</span>
+<span class="s0">│   │   ├── stepdefinitions/</span>
+<span class="s0">│   │   │   └── DP1TestSteps.java</span>
+<span class="s0">│   │   ├── runners/</span>
+<span class="s0">│   │   │   └── DP1TestRunner.java</span>
+<span class="s0">│   │   └── tests/</span>
+<span class="s0">│   │       └── DP1TestNGSuite.xml</span>
+<span class="s0">│   ├── src/test/resources/features/</span>
+<span class="s0">│   │   └── derived-product1.feature</span>
+<span class="s0">│   ├── src/test/resources/testdata/</span>
+<span class="s0">│   │   └── derived-product1-testdata.json</span>
+<span class="s0">│   ├── pom.xml</span>
+<span class="s0">│</span>
+<span class="s0">├── derived-product2-tests/               # Test cases for Derived Product 2</span>
+<span class="s0">│   ├── src/test/java/com/automation/</span>
+<span class="s0">│   │   ├── stepdefinitions/</span>
+<span class="s0">│   │   │   └── DP2TestSteps.java</span>
+<span class="s0">│   │   ├── runners/</span>
+<span class="s0">│   │   │   └── DP2TestRunner.java</span>
+<span class="s0">│   │   └── tests/</span>
+<span class="s0">│   │       └── DP2TestNGSuite.xml</span>
+<span class="s0">│   ├── src/test/resources/features/</span>
+<span class="s0">│   │   └── derived-product2.feature</span>
+<span class="s0">│   ├── src/test/resources/testdata/</span>
+<span class="s0">│   │   └── derived-product2-testdata.json</span>
+<span class="s0">│   ├── pom.xml</span>
+<span class="s0">│</span>
+<span class="s0">├── pom.xml                               # Parent POM for multi-module project</span>
+<span class="s0">└── README.md                             # Project documentation</span>
+
+<span class="s0">Setup &amp; Installation</span>
+
+<span class="s0">Prerequisites</span>
+
+<span class="s0">Ensure the following dependencies are installed</span><span class="s1">:</span>
+
+<span class="s0">Java 11 or later</span>
+
+<span class="s0">Maven 3.6+</span>
+
+<span class="s0">Selenium WebDriver</span>
+
+<span class="s0">TestNG</span>
+
+<span class="s0">Cucumber</span>
+
+<span class="s0">WebDriverManager</span>
+
+<span class="s0">Extent Reports</span>
+
+<span class="s0">JSON/YAML Processing Libraries</span>
+
+<span class="s0">Steps to Setup</span>
+
+<span class="s0">Clone the repository</span><span class="s1">:</span>
+
+<span class="s0">git clone </span><span class="s2">https://github.com/your-repo/Veeva-Web-Test-Automation.git</span>
+
+<span class="s0">Navigate to the project directory</span><span class="s1">:</span>
+
+<span class="s0">cd Veeva-Web-Test-Automation</span>
+
+<span class="s0">Build the project using Maven</span><span class="s1">:</span>
+
+<span class="s0">mvn clean install</span>
+
+<span class="s0">Running Tests</span>
+
+<span class="s0">Using Maven</span>
+
+<span class="s0">Run all tests across modules</span><span class="s1">:</span>
+
+<span class="s0">mvn test</span>
+
+<span class="s0">Run specific module tests</span><span class="s1">:</span>
+
+<span class="s0">cd core-product-tests</span>
+<span class="s0">mvn test</span>
+
+<span class="s0">Using TestNG</span>
+
+<span class="s0">Run a specific TestNG suite</span><span class="s1">:</span>
+
+<span class="s0">mvn test -DsuiteXmlFile=src/test/resources/tests/CPTestNGSuite.xml</span>
+
+<span class="s0">Using Cucumber</span>
+
+<span class="s0">Run Cucumber tests</span><span class="s1">:</span>
+
+<span class="s0">mvn test -Dcucumber.features=src/test/resources/features/core-product.feature</span>
+
+<span class="s0">Reporting</span>
+
+<span class="s0">Test execution reports are generated using Extent Reports. After test execution, reports can be found at</span><span class="s1">:</span>
+
+<span class="s0">{project-root}/test-output/ExtentReport.html</span>
+
+<span class="s0">Open the HTML report in a browser to view the detailed execution results.</span>
+
+<span class="s0">CI/CD Integration</span>
+
+<span class="s0">This project supports Jenkins CI/CD pipelines. To integrate</span><span class="s1">:</span>
+
+<span class="s0">Configure Jenkins to pull the latest code from the repository.</span>
+
+<span class="s0">Add a Maven build step with</span><span class="s1">:</span>
+
+<span class="s0">mvn clean test</span>
+
+<span class="s0">Post-test execution, configure Jenkins to archive reports from</span><span class="s1">:</span>
+
+<span class="s0">test-output/ExtentReport.html</span>
+
+<span class="s0">Best Practices</span>
+
+<span class="s0">Follow POM </span><span class="s1">(</span><span class="s0">Page Object Model</span><span class="s1">) </span><span class="s0">for maintainability.</span>
+
+<span class="s0">Use WebDriverManager for driver initialization.</span>
+
+<span class="s0">Avoid hard-coded values; use JSON/YAML for test data.</span>
+
+<span class="s0">Enable parallel execution for better performance.</span>
+
+<span class="s0">Use proper logging and reporting mechanisms.</span>
+
+<span class="s0">Contributors</span>
+
+<span class="s0">Madhan Mohan Reddy </span><span class="s1">(</span><span class="s0">Automation Engineer</span><span class="s1">)</span>
+
+<span class="s0">Team Members </span><span class="s1">(</span><span class="s0">Add names if applicable</span><span class="s1">)</span>
+
+<span class="s0">For any queries, contact</span><span class="s1">: </span><span class="s0">m11596m@gmail.com</span>
+
+<span class="s0">License</span>
+
+<span class="s0">This project is licensed under the MIT License - see the LICENSE file for details.</span>
+
+</pre>
+</body>
+</html>
